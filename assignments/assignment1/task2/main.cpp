@@ -2,19 +2,11 @@
 
 using namespace std;
 
-int main () {
-    string password;
-    int length = 0;
+void check_password (int length, string str) {
     bool is_number = false, is_capital_letter = false, is_lower_letter = false, is_spacial_character = false;
 
-    cin >> password;
-
-    while (password[length]){
-        length++;
-    }
-
     for(int i =0; i < length; i++){
-        int ascii_value = (int) password[i];
+        int ascii_value = (int) str[i];
         
         if(ascii_value >= 48 && ascii_value <=57){
             is_number = true;
@@ -52,10 +44,19 @@ int main () {
              cout << "Special Character Missing" << endl;
         }
     }
+}
 
-  
+int main () {
+    string password;
+    int length = 0;  
 
-    // cout << length << endl;
+    cin >> password;
+
+    while (password[length]){
+        length++;
+    }
+
+   check_password(length, password);
 
     return 0;
 }
