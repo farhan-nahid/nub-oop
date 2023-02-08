@@ -1,33 +1,37 @@
 #include <iostream>
+#include <vector>
 #include <map>
-#include <string>
 
 using namespace std;
 
 int main (){
-    map <int, int> number_count;
-    string input;
+    vector <int> myArr;
+    bool stop = true;
+    map<int, int> frequency;
 
-    while (true){
-        cin >> input;
-
-        if(input == "STOP"){
+    while(stop){
+        string temp;
+        cin >> temp ;
+        if(temp == "STOP"){
+            stop = false;
             break;
+        } else{
+            try{
+              myArr.push_back(stoi(temp));
+            } catch (string err){
+                cout << err << "Something wrong" << endl;
+            }
         }
-
-        int num = stoi(input);
-        number_count[num]++;
     }
-    
-    // for(const auto& [num, count] : number_count){
-    //     cout << num << "---" << count ;
-    // }
 
+    for(auto x : myArr){
+      frequency[x] ++;
+    }
 
+    for(auto x : frequency){
+      cout << x.first << " -- " << x.second << " Times" << endl;
+    }
 
-  for (const auto& [num, count] : number_count) {
-    std::cout << num << " - " << count << " times\n";
-  }
 
     return 0;
 }
