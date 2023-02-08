@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <map>
 
 using namespace std;
 
 int main (){
     vector <int> myArr;
     bool stop = true;
+    map<int, int> frequency;
 
     while(stop){
         string temp;
@@ -17,13 +19,17 @@ int main (){
             try{
               myArr.push_back(stoi(temp));
             } catch (string err){
-              cout << err << endl;
+                cout << err << "Something wrong" << endl;
             }
         }
     }
 
-    for(int j =0; j < myArr.size(); j++){
-        cout << myArr[j] << endl;
+    for(auto x : myArr){
+      frequency[x] ++;
+    }
+
+    for(auto x : frequency){
+      cout << x.first << " -- " << x.second << " Times" << endl;
     }
 
 
