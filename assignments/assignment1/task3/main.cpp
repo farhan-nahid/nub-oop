@@ -1,33 +1,31 @@
 #include <iostream>
-#include <map>
-#include <string>
+#include <vector>
 
 using namespace std;
 
 int main (){
-    map <int, int> number_count;
-    string input;
+    vector <int> myArr;
+    bool stop = true;
 
-    while (true){
-        cin >> input;
-
-        if(input == "STOP"){
+    while(stop){
+        string temp;
+        cin >> temp ;
+        if(temp == "STOP"){
+            stop = false;
             break;
+        } else{
+            try{
+              myArr.push_back(stoi(temp));
+            } catch (string err){
+              cout << err << endl;
+            }
         }
-
-        int num = stoi(input);
-        number_count[num]++;
     }
-    
-    // for(const auto& [num, count] : number_count){
-    //     cout << num << "---" << count ;
-    // }
 
+    for(int j =0; j < myArr.size(); j++){
+        cout << myArr[j] << endl;
+    }
 
-
-  for (const auto& [num, count] : number_count) {
-    std::cout << num << " - " << count << " times\n";
-  }
 
     return 0;
 }
