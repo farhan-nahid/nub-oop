@@ -13,16 +13,14 @@ void welcome()
     puts("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬" );
    
     puts("Your Location" );
-    puts("Dhanmondi / Outside" );
+    puts("Mohakhali / Outside" );
 }
 
 
 double total_cost(string food, string location){
     double total = 0, food_price = 0, tax = 8, delivery_charge = 0;
 
-    cout << food << endl;
-
-    if(location == "Dhanmondi"){
+    if(location == "Mohakhali" || location == "" ){
         delivery_charge = 40;
     } else {
         delivery_charge = 60;
